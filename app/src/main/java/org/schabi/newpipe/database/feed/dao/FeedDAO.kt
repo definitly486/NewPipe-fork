@@ -137,7 +137,7 @@ abstract class FeedDAO {
             INNER JOIN feed f
             ON s.uid = f.stream_id
 
-            WHERE s.stream_type = "LIVE_STREAM" OR s.stream_type = "AUDIO_LIVE_STREAM"
+            WHERE s.stream_type = 'LIVE_STREAM' OR s.stream_type = 'AUDIO_LIVE_STREAM'
         )
         """
     )

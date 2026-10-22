@@ -40,6 +40,7 @@ import org.schabi.newpipe.util.StateSaver
 import org.schabi.newpipe.util.image.ImageStrategy
 import org.schabi.newpipe.util.image.PreferredImageQuality
 import org.schabi.newpipe.util.potoken.PoTokenProviderImpl
+import org.schabi.newpipe.local.subscription.DefaultSubscriptions
 
 /*
  * Copyright (C) Hans-Christoph Steiner 2016 <hans@eds.org>
@@ -101,6 +102,7 @@ open class App :
             Localization.getPreferredLocalization(this),
             Localization.getPreferredContentCountry(this)
         )
+        DefaultSubscriptions.insertIfMissing(this);
         Localization.initPrettyTime(Localization.resolvePrettyTime())
 
         BridgeStateSaverInitializer.init(this)
