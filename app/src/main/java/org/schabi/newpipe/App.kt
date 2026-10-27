@@ -102,7 +102,6 @@ open class App :
             Localization.getPreferredLocalization(this),
             Localization.getPreferredContentCountry(this)
         )
-        DefaultSubscriptions.insertIfMissing(this);
         Localization.initPrettyTime(Localization.resolvePrettyTime())
 
         BridgeStateSaverInitializer.init(this)
@@ -126,6 +125,10 @@ open class App :
         configureRxJavaErrorHandler()
 
         YoutubeStreamExtractor.setPoTokenProvider(PoTokenProviderImpl)
+
+        // Должно вызываться после инициализации NewPipe, сервисов и качества изображений:
+        // вставляет встроенные подписки и подгружает для них аватарки.
+        DefaultSubscriptions.insertIfMissing(this)
     }
 
     override fun newImageLoader(context: Context): ImageLoader = ImageLoader
