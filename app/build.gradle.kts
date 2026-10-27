@@ -77,8 +77,8 @@ configure<ApplicationExtension> {
                 resValue("string", "app_name", "NewPipe $suffix")
             }
             
-            isMinifyEnabled = false
-            isShrinkResources = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

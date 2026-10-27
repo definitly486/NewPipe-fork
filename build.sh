@@ -1,4 +1,4 @@
 #!/bin/sh
 
-JAVA_TOOL_OPTIONS="-Dos.name=Linux -Dorg.sqlite.lib.path=/usr/local/lib -Dorg.sqlite.lib.name=libsqlitejdbc.so" \
-  ./gradlew --no-daemon assembleRelease --no-daemon "$@"
+
+  ./gradlew  assembleRelease --no-configuration-cache --no-build-cache  "$@"
